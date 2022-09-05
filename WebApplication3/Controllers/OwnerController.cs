@@ -44,6 +44,14 @@ namespace WebApplication3.Controllers
             return Ok(new OwnerDTO(author));
         }
 
+        [HttpGet("lastname/{lastname}")]
+        public async Task<IActionResult> GetOwnerByLastName(string lastname)
+        {
+            var owner = await _repository.GetByLastName(lastname);
+
+            return Ok(new OwnerDTO(owner));
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOwner(int id)
         {
@@ -82,13 +90,22 @@ namespace WebApplication3.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> UpdateAuthor(int id, [FromBody] OwnerDTO dto)
+        public async Task<IActionResult> UpdateOwner(int id, [FromBody] CreateOwnerDTO dto)
         {
-            _repository.Owner.UpdateOwner(id, dto);
+            Owner newOwner = new Owner();
+
+            newOwner.Id = id;
+            newOwner.FirstName = dto.FirstName;
+            newOwner.LastName = dto.LastName;
+            newOwner.Gender = dto.Gender;
+            newOwner.Age = dto.Age;
+
+            _repository.Update(newOwner);
 
             await _repository.SaveAsync();
 
-            return Ok(dto);
+
+            return Ok(new OwnerDTO(newOwner));
         }
 
 

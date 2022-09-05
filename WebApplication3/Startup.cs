@@ -20,6 +20,8 @@ using WebApplication3.Data;
 using WebApplication3.Models.Constants;
 using WebApplication3.Models.Entities;
 using WebApplication3.Repositories;
+using WebApplication3.Repositories.CarrRepository;
+using WebApplication3.Repositories.InsurancesRepository;
 using WebApplication3.Repositories.OwnerrRepository;
 using WebApplication3.Seed;
 using WebApplication3.Services.UserServices;
@@ -49,6 +51,9 @@ namespace WebApplication3
 
 
             services.AddTransient<IOwnerRepository, OwnerRepository>();
+            services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<IInsuranceRepository, InsuranceRepository>();
+
 
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>

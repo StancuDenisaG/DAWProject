@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication3.Entities;
 
 namespace WebApplication3.Models.Entities.DTOs
 {
@@ -15,7 +16,7 @@ namespace WebApplication3.Models.Entities.DTOs
 
         public int CarId { get; set; }
 
-        public InsuranceDTO(InsuranceDTO insurance)
+        public InsuranceDTO(Insurance insurance)
         {
             this.Id = insurance.Id;
             this.Company = insurance.Company;

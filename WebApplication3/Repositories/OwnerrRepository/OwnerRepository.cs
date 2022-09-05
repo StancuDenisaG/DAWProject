@@ -30,7 +30,9 @@ namespace WebApplication3.Repositories.OwnerrRepository
             return await _context.Owners.Where(o => o.LastName.Equals(lastname)).FirstOrDefaultAsync();
         }
 
-    
+     
+
+
 
 
     }

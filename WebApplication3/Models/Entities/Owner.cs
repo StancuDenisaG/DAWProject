@@ -14,7 +14,6 @@ namespace WebApplication3.Entities
 
         public int Age { get; set; }
         public String Gender { get; set; }
-        //public Address Address { get; set; }
         public ICollection<Car> Cars { get; set; } //am specificat ca un proprietar poate avea mai multe masini
                                                    
 
